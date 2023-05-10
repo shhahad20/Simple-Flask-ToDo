@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #161727;
+            font-family: Poppins;
+        }
+        h1,h2{
+           text-align: center;
+            color:#161727;
+        }
+        #header-h1{
+            color: white;
+            padding-top: 5%;
+        }
+table {
+  border-collapse: collapse;
+    background-color: #A6B1E1;
+    width: 30%;
+    margin: 2% 35%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+button{
+    margin: 0% 35%;
+    padding: 0.2% 0.3%;
+    background-color: #F4EEFF;
+    font-weight: bold;
+    border-radius: 10%;
+
+}
+input{
+    margin: 0% 35%;
+    padding: 0.3% 0.5%;
+    background: #F4EEFF;
+    color: #161727;
+}
+#text-f{
+    width: 30%;
+    border: 0;
+  border-bottom: 2px solid white;
+  outline: 0;
+  font-size: 1.3rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+th, td {
+  /*text-align: left;*/
+    text-align: center;
+  padding: 8px;
+    border-bottom: 1px;
+
+
+}
+td{
+    border-bottom: solid 1px #DCD6F7;
+}
+/*tr:nth-child(even){*/
+/*    !*background-color: #f2f2f2;*!*/
+/*    border-bottom: solid 1px #DCD6F7;*/
+
+/*}*/
+
+th {
+  background-color: #DCD6F7;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h1 id="header-h1">Let's complete our list Today!</h1>
+<div id="table">
+<table>
+  <tr>
+      <th><h2> </h2></th>
+    <th><h2>To Do</h2></th>
+    <th><h2>Date</h2></th>
+      <th><h2> </h2></th>
+      <th><h2> </h2></th>
+  </tr>
+			{% for thing in things %}
+			<tr>
+<!--                <td>{{ thing.ID }}</td>-->
+                <td> </td>
+				<td>{{ thing.TXT }}</td>
+				<td>{{ thing.DATE }}</td>
+     <td> <button type="submit" name="dele2"><a href="/Delete/{{thing.ID}}">Delete</a></button>
+ </td>
+			</tr>
+			{% endfor %}
+
+</table>
+    </div>
+<form action="/Add" method="post">
+    <label style="display: block; margin: 0.2% 35%; color: white; font-size: 19px;">New thing TO-Do</label>
+   <input type="text" name="thing" id="text-f" style="margin: 0.2% 35%;"> <!--  value={{request.form.thing_todo}}-->
+    <input type="date" name="date" style="margin: 0.2% 35%;">
+    <button type="submit" style="margin: 0.2% 35%;">Add</button>
+</form>
+</body>
+</html>
